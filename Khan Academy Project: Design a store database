@@ -1,0 +1,22 @@
+-- Create a Bible store database
+
+CREATE TABLE Bible (ID INTEGER PRIMARY KEY, Name TEXT, Rating INTEGER, Sold_Copies INTEGER, Price INTEGER); 
+
+INSERT INTO Bible VALUES
+(1, "ESV" , 3, 20, 15), 
+(2, "NIV" , 4, 40, 10),
+(3, "KJV" , 1, 70, 5),
+(4, "NKJV" , 2, 60, 20), 
+(5, "NASB" , 5, 10, 25);
+
+-- Display the database ordered by price and sold copies were more than 15
+
+SELECT * FROM Bible;
+
+SELECT * FROM Bible
+WHERE Sold_Copies>=15
+ORDER BY Price asc; 
+
+-- Total copies sold 
+
+SELECT SUM (Sold_Copies) FROM Bible
