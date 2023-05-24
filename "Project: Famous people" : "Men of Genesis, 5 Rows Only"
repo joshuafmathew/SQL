@@ -1,0 +1,28 @@
+CREATE TABLE Men_of_Genesis (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name TEXT,
+    Introduced_Chapter INTEGER,
+    Well_Known TEXT);
+    
+INSERT INTO Men_of_Genesis (Name, Introduced_Chapter, Well_Known) VALUES ("Adam", 1, "First Man");
+INSERT INTO Men_of_Genesis (Name, Introduced_Chapter, Well_Known) VALUES ("Noah", 6, "Ark");
+INSERT INTO Men_of_Genesis (Name, Introduced_Chapter, Well_Known) VALUES ("Abraham", 11, "Father of many Nations");
+INSERT INTO Men_of_Genesis (Name, Introduced_Chapter, Well_Known) VALUES ("Isaac", 21, "Almost Sacrificed");
+INSERT INTO Men_of_Genesis (Name, Introduced_Chapter, Well_Known) VALUES ("Jacob", 25, "Israel");
+
+CREATE table Additional_Info (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    People_ID INTEGER,
+    Also_Known_For TEXT,
+   Family TEXT);
+    
+INSERT INTO Additional_Info (People_ID, Also_Known_For, Family) VALUES (1, "Fall of Man", "Eve");
+INSERT INTO Additional_Info (People_ID, Also_Known_For, Family) VALUES (2, "Drunk", "Shem, Ham, and Japheth");
+INSERT INTO Additional_Info (People_ID, Also_Known_For, Family) VALUES (3, "Name Changed", "Sarah");
+INSERT INTO Additional_Info (People_ID, Also_Known_For, Family) VALUES (4, "Miracle Baby", "Rebekah");
+INSERT INTO Additional_Info (People_ID, Also_Known_For, Family) VALUES (5, "Birthright", "Rachel");
+
+SELECT Men_of_Genesis.Name, Men_of_Genesis.Well_Known, Additional_Info.Also_Known_For
+FROM Men_of_Genesis
+JOIN Additional_Info
+ON Men_of_Genesis.ID = Additional_Info.People_ID; 
